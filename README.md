@@ -52,7 +52,7 @@ IntelliJ IDEA is a popular Integrated Development Environment (IDE) that provide
 
 5. Productivity boosters: IntelliJ IDEA has several productivity boosters that help you write Kotlin code faster and more efficiently. Some of these features include code generation, live templates, and intelligent code completion.
 
-14. Explain keywords in Kotlin.
+14. Explain keywords in Kotlin. https://kotlinlang.org/docs/keyword-reference.html
 
 In Kotlin, keywords are reserved words that have a special meaning and cannot be used as identifiers (variable names, function names, etc.). Keywords play an important role in defining the syntax and structure of Kotlin code.
 
