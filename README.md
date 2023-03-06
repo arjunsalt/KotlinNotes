@@ -248,3 +248,71 @@ Long	64 bit	-9,223,372,036,854,775,808 to +9,223,372,036,854,775,807
 Float	32 bit	1.40129846432481707e-45 to 3.40282346638528860e+38
 Double	64 bit	4.94065645841246544e-324 to 1.79769313486231570e+308
 
+20. Explain type casting in Kotlin.
+
+Type casting, also known as type conversion, is a process of converting a data type into another data type in programming. It is a way to change the data type of a variable or a value from one form to another. This is a common operation in programming, as different data types can be used for different purposes, and it is often necessary to convert data between types to perform certain operations.
+
+Generally are two types of type casting: implicit and explicit. Implicit type casting happens automatically, without the programmer needing to explicitly specify the type conversion. Explicit type casting, on the other hand, requires the programmer to explicitly specify the type conversion.
+
+Implicit type casting is also known as coercion. It happens when the programming language automatically converts a value of one data type to another data type without the programmer having to explicitly specify the conversion. For example, if you try to add an integer to a float, the programming language will automatically convert the integer to a float before performing the addition.
+
+Explicit type casting requires the programmer to specify the type conversion. This is typically done using special functions or operators provided by the programming language. For example, in C++, the static_cast operator can be used to convert a value from one data type to another.
+
+Kotlin does not use the same terminology as some other programming languages, such as Java or C++. In Kotlin, the concepts of implicit and explicit type casting are instead referred to as type inference and type coercion.
+
+Type inference is the process by which the Kotlin compiler automatically deduces the type of a variable or expression based on its usage. This is similar to implicit type casting in other programming languages. 
+
+For example:
+
+val x = 42       // x is automatically inferred to be an Int
+val y = 3.14     // y is automatically inferred to be a Double
+val z = x + y    // z is automatically inferred to be a Double
+
+Type coercion, on the other hand, is the process by which a value of one type is explicitly converted to another type. This is similar to explicit type casting in other programming languages. There are two types: Safe cast and Unsafe cast.
+
+1. Safe Cast:
+Safe cast is denoted by the "?" operator in Kotlin. It checks if the variable can be casted to the specified type, and returns null if the cast is not possible.
+
+syntax:
+variable as? type
+
+example:
+val str: String? = "Kotlin"
+val len: Int? = str as? Int // len will be null
+
+In this example, we are trying to cast a String variable to an Int using safe cast. Since it is not possible to cast a String to an Int, the "len" variable will be null.
+
+2. Unsafe Cast:
+Unsafe cast is denoted by the "as" operator in Kotlin. It does not check if the variable can be casted to the specified type, and throws a ClassCastException if the cast is not possible.
+
+syntax:
+variable as type
+
+example:
+val str: String? = "Kotlin"
+val len: Int = str as Int // throws ClassCastException
+
+In this example, we are trying to cast a String variable to an Int using unsafe cast. Since it is not possible to cast a String to an Int, it will throw a ClassCastException.
+
+It is important to note that type casting in Kotlin is only possible for reference types (classes and interfaces), and not for primitive types (such as Int, Float, etc.). To convert a primitive type to another primitive type, you can use the conversion functions provided by Kotlin (e.g. toInt(), toDouble(), etc.).
+
+21. Explain Smart casting in Kotlin.
+
+Smart casting is a feature in Kotlin that allows the automatic casting of a variable from a nullable type to a non-nullable type. This is possible when the Kotlin compiler can determine that a variable is not null after a certain point in the code.
+
+For example, let's say we have a nullable variable "x" of type "String?" (i.e. String or null). If we check if "x" is not null using the "if" statement, the Kotlin compiler will automatically cast "x" to a non-nullable type "String" inside the "if" block:
+
+var x: String? = "hello"
+if (x != null) {
+    // x is automatically cast to non-nullable type String inside this block
+    println(x.length)
+}
+
+In this code snippet, we first declare the nullable variable "x" and assign it the value "hello". Then, we use the "if" statement to check if "x" is not null. Inside the "if" block, we can safely use the "length" property of "x" without having to use the safe call operator (i.e. "?.").
+
+Smart casting can also work with "when" expressions, "try-catch" blocks, and other control flow statements.
+
+Smart casting is a powerful feature in Kotlin that allows for more concise and readable code, while also reducing the risk of null pointer exceptions. It can greatly simplify code that deals with nullable types and make it easier to work with them.
+
+
+
