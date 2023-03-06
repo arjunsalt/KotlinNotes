@@ -5,14 +5,16 @@
 - Code: 
 
 	fun main() {
-print("Hello, world!")
-}
+		print("Hello, world!")
+	}
 
-This program defines a function called main, which is the entry point of the program. Within this function, we use the print function to print the string "Hello, World!" to the console.
+Let's break down this code:
 
-When you run this program, you should see the output "Hello, World!" printed to the console.
+fun main() defines a function named main. This is the entry point of the program, where the execution starts.
 
-The keyword fun is short for function. The function’s name follows the fun keyword, so in this case it’s main().
+print() is a built-in function in Kotlin that prints the specified string to the console.
+
+"Hello, World!" is a string literal that contains the text to be printed. Note that string literals in Kotlin are enclosed in double quotes.
 
 11. What is Kotlin REPL?
 
