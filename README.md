@@ -314,5 +314,50 @@ Smart casting can also work with "when" expressions, "try-catch" blocks, and oth
 
 Smart casting is a powerful feature in Kotlin that allows for more concise and readable code, while also reducing the risk of null pointer exceptions. It can greatly simplify code that deals with nullable types and make it easier to work with them.
 
+22. Explain constants in Kotlin.
 
+Constants are values that cannot be changed once they are initialized. They are declared using the "val" keyword, just like variables, but with the added "const" modifier for compile-time constants.
+
+example:
+const val PI = 3.14159
+
+In this example, we declare a constant named "PI" and assign it the value "3.14159". This value cannot be changed at runtime, and the "const" modifier tells the Kotlin compiler that this is a compile-time constant, which allows it to optimize the code by replacing uses of the constant with its value directly.
+
+Constants can be used to store values that are known at compile time and are not expected to change during the lifetime of the program. This can include mathematical constants, configuration values, or other values that are determined at compile time.
+
+It's important to note that not all values can be declared as constants in Kotlin. For a value to be declared as a constant, it must meet certain criteria, including:
+
+- It must be a primitive type, a string, or an object that implements the "Any" interface.
+- It must be top-level or a member of an object declaration.
+- It must be initialized with a value that is known at compile time.
+- It cannot be used in a way that would require it to be initialized at runtime.
+
+It's a good practice to use constants wherever possible, as it can help make the code more readable and maintainable by reducing the number of magic numbers and hard-coded values.
+
+23. What are magic numbers in programming?
+
+In programming, a magic number is a numeric constant that appears in the code without any explanation of its meaning or significance. Magic numbers can be any numeric value, such as integers, floats, or doubles, and are often used as hard-coded values in the code.
+
+For example, consider the following code:
+fun calculatePrice(quantity: Int) {
+    val price = quantity * 2.5 // 2.5 is a magic number
+    println("The price is $price")
+}
+
+In this example, the value 2.5 is a magic number because it appears in the code without any explanation of why it's used. This can make the code hard to understand and maintain, as it's not clear what the value represents or how it was determined.
+
+Magic numbers can also make the code more error-prone, as it can be easy to mistype or misinterpret the value when modifying the code. This can lead to bugs and unexpected behavior.
+
+To avoid magic numbers, it's a good practice to use constants instead. By declaring a constant with a meaningful name, we can give context to the value and make the code more self-explanatory. 
+
+For example:
+
+const val PRICE_PER_ITEM = 2.5
+
+fun calculatePrice(quantity: Int) {
+    val price = quantity * PRICE_PER_ITEM
+    println("The price is $price")
+}
+
+In this example, we declare a constant named "PRICE_PER_ITEM" and assign it the value 2.5. By using this constant in the code instead of the magic number, we can make the code more readable and maintainable. Additionally, if we ever need to change the value of the constant, we can do so in one place and have the change propagate throughout the code.
 
