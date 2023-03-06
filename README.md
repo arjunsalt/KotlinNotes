@@ -240,3 +240,11 @@ In Kotlin, maps are represented by the Map class. A map is used to store a colle
 syntax:
 val variable_name: Map<key_data_type, value_data_type> = mapOf(key1 to value1, key2 to value2, ...)
 
+Data    Type	Size (bits)	Data Range
+Byte	8 bit	-128 to 127
+Short	16 bit	-32768 to 32767
+Int	32 bit	-2,147,483,648 to 2,147,483,647
+Long	64 bit	-9,223,372,036,854,775,808 to +9,223,372,036,854,775,807
+Float	32 bit	1.40129846432481707e-45 to 3.40282346638528860e+38
+Double	64 bit	4.94065645841246544e-324 to 1.79769313486231570e+308
+
