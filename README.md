@@ -745,3 +745,77 @@ println(result) // Output: 5
 ```
 
 In this example, num1 is a primitive Int data type, while num2 is a nullable Int object that is created by boxing num1. The Elvis operator (?:) is used to unbox num2 and assign its value to result. If num2 is null, then result is assigned the value 0 instead. Finally, the value of result is printed, which is 5 in this case.
+
+34. Explain functions in Kotlin.
+
+A function is a block of code that performs a specific task. Functions are designed to accept inputs (arguments) and return outputs (values) based on the inputs.
+
+Functions are used to break down complex problems into smaller, more manageable parts. They allow you to write reusable code, which can save time and reduce errors. Instead of writing the same code multiple times, you can write a function once and call it whenever you need to perform the same task.
+
+Functions can be built-in, such as those that come with programming languages or libraries, or they can be custom-written by the programmer. When a function is called, the inputs are passed as arguments, the code inside the function is executed, and the function returns an output, which can be used by the calling code.
+
+In Kotlin, a function is defined using the fun keyword, followed by the function name, and then the function body, which is enclosed in curly braces { }. Here is the basic syntax of a function:
+
+```
+fun functionName(param1: Type1, param2: Type2, ...): ReturnType {
+    // function body
+    return returnValue
+}
+```
+
+Let's break this syntax down into its components:
+
+- fun: The keyword that indicates that a function is being defined.
+- functionName: The name of the function, which should be descriptive and meaningful.
+- param1: Type1, param2: Type2, ...: The list of parameters that the function accepts, separated by commas. Each parameter is declared with a name, followed by a colon and the type of the parameter.
+- : ReturnType: The return type of the function. If the function does not return anything, this can be specified as Unit or omitted entirely.
+- { ... }: The body of the function, enclosed in curly braces. This is where the code that the function executes is written.
+- return returnValue: This is used to return a value from the function. The return keyword is followed by the value that the function should return. If the function doesn't return anything, this statement can be omitted entirely.
+
+Now, let's look at an example of a simple function in Kotlin:
+
+```
+fun greet(name: String): String {
+    return "Hello, $name!"
+}
+```
+
+This function is named greet and accepts a single parameter name of type String. The function returns a string that says "Hello, " followed by the value of the name parameter.
+
+Here is an example of how to call the greet function and print the result:
+
+```
+fun main() {
+    val greeting = greet("Alice")
+    println(greeting)
+}
+
+/* Outputs 
+Hello, Alice!*/
+
+```
+
+Now, let's look at another example of a function that takes multiple parameters and returns a value:
+
+```
+fun addNumbers(a: Int, b: Int): Int {
+    val sum = a + b
+    return sum
+}
+```
+
+This function is named addNumbers and accepts two parameters a and b of type Int. The function returns an Int value, which is the sum of the two parameters.
+
+Here is an example of how to call the addNumbers function and print the result:
+
+```
+fun main() {
+    val result = addNumbers(5, 7)
+    println("The sum of 5 and 7 is $result")
+}
+
+/* Outputs
+The sum of 5 and 7 is 12 */
+
+```
+
