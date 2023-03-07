@@ -431,4 +431,251 @@ System.out.printf() - This method allows you to print output to the console usin
 
 kotlin.io package - This package provides functions for reading and writing files, working with the console, and more. For example, the readBytes() and writeBytes() functions can be used to read and write binary data from files.
 
+30. Explain Kotlin operator's.
+
+An operator is a symbol that tells the compiler to perform specific mathematical or logical manipulations. 
+
+In Kotlin there are many types of operators:
+
+1. Arithmetic Operators
+2. Relational Operators
+3. Assignment operator
+4. Unary operator
+5. Logical operator
+6. Bitwise operator
+7. In Operator
+8. Range Operators
+9. Elvis Operator
+10. Safe Call Operator
+
+1. Arithmetic Operator
+
+Arithmetic operators are used to perform basic mathematical operations such as addition (+), subtraction (-), multiplication (*), division (/) etc.
+
+|Operator | Description | Expression | Translate to|
+|---------|-------------|------------|-------------|
+|+	    |	Addition	| a+b		 | a.plus(b)   |
+|-	    | Subtraction	| a-b		 | a.minus(b)  |
+|*	    | Multiply	| a*b		 | a.times(b)  |
+|/	    | Division	| a/b		 | a.div(b)    |
+|%	    | Modulus	| a%b		 | a.rem(b)    |
+
+Here are some examples of using arithmetic operators in Kotlin:
+
+```
+val x = 10
+val y = 5
+val z = x + y // z = 15
+val a = x - y // a = 5
+val b = x * y // b = 50
+val c = x / y // c = 2
+val d = x % y // d = 0
+```
+
+2. Relation / Comparison Operator
+
+Relation operator shows the relation, compares between operands and return a Boolean value (true or false) based on the comparison. Comparison operators are often used in conditional statements, such as if statements, to control the flow of a program based on the comparison result.
+
+| Operator | Description | Expression | Translate to |
+| -------- | ----------- | ---------- | ------------ |
+| >        | greater than | a>b | a.compareTo(b)>0 |
+| <        | Less than | a<b | a.compareTo(b)<0 |
+| >=       | greater than or equal to | a>=b | a.compareTo(b)>=0 |
+| <=       | less than or equal to | a<=b | a?.equals(b)?:(b===null) |
+| ==       | is equal to | a==b | a?.equals(b)?:(b===null) |
+| !=       | not equal to | a!=b | !(a?.equals(b)?:(b===null)) |
+
+Here are some examples of using comparison operators in Kotlin:
+
+```
+val x = 10
+val y = 5
+
+val result1 = x == y // result1 is false
+val result2 = x != y // result2 is true
+val result3 = x > y // result3 is true
+val result4 = x < y // result4 is false
+val result5 = x >= y // result5 is true
+val result6 = x <= y // result6 is false
+```
+
+3. Assignment operator
+
+Assignment operator "=" is used to assign a value to another variable. The assignment of value takes from right to left.
+
+| Operator | Description | Expression | Convert to |
+| -------- | ----------- | ---------- | --------- |
+| +=       | add and assign | a+=b | a.plusAssign(b) |
+| -=       | subtract and assign | a-=b | a.minusAssign(b) |
+| *=       | multiply and assign | a*=b | a.timesAssign(b) |
+| /=       | divide and assign | a/=b | a.divAssign(b) |
+| %=       | mod and assign | a%=b | a.remAssign(b) |
+
+Here are some examples of using the assignment operator in Kotlin:
+
+```
+var x = 5 // assigns the value 5 to variable x
+var y: Int // declares a variable y of type Int
+y = 10 // assigns the value 10 to variable y
+
+val message: String // declares a constant message of type String
+message = "Hello, world!" // assigns the value "Hello, world!" to the constant message
+```
+
+In the first example, the variable x is assigned the value 5. In the second example, the variable y is declared and assigned the value 10 in separate steps. In the third example, a constant message is declared and assigned the value "Hello, world!".
+
+The assignment operator can also be used with other operators to create compound assignment operators. For example, the expression x += 2 is equivalent to x = x + 2. Here are some examples of using compound assignment operators in Kotlin:
+
+```
+var count = 0
+count += 5 // equivalent to count = count + 5
+count -= 3 // equivalent to count = count - 3
+count *= 2 // equivalent to count = count * 2
+count /= 4 // equivalent to count = count / 4
+```
+
+Compound assignment operators can make code shorter and easier to read, especially when the same variable is being modified multiple times.
+
+4. Unary Operator
+
+Unary operator is used with only single operand. Following are some unary operator given below.
+
+| Operator | Description | Expression | Convert to |
+| -------- | ----------- | ---------- | --------- |
+| +        | unary plus | +a | a.unaryPlus() |
+| -        | unary minus | -a | a.unaryMinus() |
+| ++       | increment by 1 | ++a | a.inc() |
+| --       | decrement by 1 | --a | a.dec() |
+| !        | not | !a | a.not() |
+
+Here are some examples of using unary operators in Kotlin:
+
+```
+var x = 5
+var y = -x // y is -5
+var isTrue = true
+var isFalse = !isTrue // isFalse is false
+```
+
+Unary operators can be used to perform simple operations on a single value, or to change the sign or logic of a value. They are often used in combination with other operators and control structures to create more complex expressions and algorithms.
+
+5. Logical Operator
+
+Logical operators are used to check conditions between operands.
+
+| Operator | Description | Expression | Convert to |
+| -------- | ----------- | ---------- | --------- |
+| &&       | return true if all expression are true | (a>b) && (a>c) | (a>b) and (a>c) |
+| \|\|       | return true if any expression are true | (a>b) \|\| (a>c) | (a>b) or(a>c) |
+| !        | return complement of expression | !a | a.not() |
+
+Here are some examples of using logical operators in Kotlin:
+
+```
+var x = 5
+var y = 10
+var z = 3
+
+// logical AND
+if (x < y && y > z) {
+    println("x is less than y and y is greater than z")
+}
+
+// logical OR
+if (x < y || x > z) {
+    println("x is either less than y or greater than z")
+}
+
+// logical NOT
+var isTrue = true
+if (!isTrue) {
+    println("isTrue is false")
+}
+```
+
+Logical operators are commonly used in conditional statements and loops to control program flow based on the result of Boolean expressions.
+
+6. Bitwise Operation
+
+In Kotlin, there is not any special bitwise operator. Bitwise operation is done using named function. Bitwise operators are used to perform operations on individual bits of a binary number. In Kotlin, there are six bitwise operators:
+
+	and - bitwise AND
+	or - bitwise OR
+	xor - bitwise XOR
+	inv - bitwise inversion (complement)
+	shl - bitwise left shift
+	shr - bitwise right shift
+
+| Named Function | Description | Expression |
+| -------------- | ----------- | ---------- |
+| shl (bits)     | signed shift left | a.shl(b) |
+| shr (bits)     | signed shift right | a.shr(b) |
+| ushr (bits)    | unsigned shift right | a.ushr(b) |
+| and (bits)     | bitwise and | a.and(b) |
+| or (bits)      | bitwise or | a.or(b) |
+| xor (bits)     | bitwise xor | a.xor(b) |
+| inv()          | bitwise inverse | a.inv() |
+
+Here are some examples of using bitwise operators in Kotlin:
+
+```
+var x = 0b10101010
+var y = 0b11001100
+
+// bitwise AND
+var z = x and y // z is 0b10001000
+
+// bitwise OR
+z = x or y // z is 0b11101110
+
+// bitwise XOR
+z = x xor y // z is 0b01100110
+
+// bitwise inversion
+z = x.inv() // z is 0b01010101
+
+// bitwise left shift
+z = x shl 2 // z is 0b1010101000
+
+// bitwise right shift
+z = x shr 2 // z is 0b101010
+```
+
+Bitwise operators are often used in low-level programming and for optimizing certain algorithms. They are commonly used in conjunction with bit masks to manipulate individual bits of data.
+
+7. The in Operator
+
+The in operator is used in Kotlin to check if a value exists in a collection or not. It is a very useful operator that can save a lot of time and effort while working with collections.
+
+The in operator is used in the following way:
+
+```
+if (value in collection) {
+    // do something
+}
+```
+
+In the above code, value is the value that you want to check and collection is the collection that you want to check for the presence of value. If value exists in collection, then the code inside the if block is executed.
+
+The in operator can be used with many types of collections in Kotlin, including arrays, lists, sets, and maps. For example:
+
+```
+val list = listOf("apple", "banana", "orange")
+if ("apple" in list) {
+    println("Found apple in the list")
+}
+```
+
+In the above code, listOf("apple", "banana", "orange") creates a list of strings. The if condition checks if the string "apple" exists in the list. Since it does, the message "Found apple in the list" is printed to the console.
+
+You can also use the !in operator to check if a value does not exist in a collection. For example:
+
+```
+if ("grape" !in list) {
+    println("Did not find grape in the list")
+}
+```
+
+In the above code, the if condition checks if the string "grape" does not exist in the list. Since it does not, the message "Did not find grape in the list" is printed to the console.
+
 
