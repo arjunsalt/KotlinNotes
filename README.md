@@ -1492,5 +1492,75 @@ try {
 
 In this example, we attempt to calculate the square root of a negative number (-2.0). Since the input is negative, the squareRoot function will throw an IllegalArgumentException. We catch this exception using a try-catch block and print the error message to the console. If the input was not negative, the square root would be calculated and printed to the console instead.
 
+In Kotlin, the check function is used to check a condition and throw an exception if the condition is not met. It's similar to the require function, but it's often used for more general-purpose checks, rather than input validation.
+
+The check function takes a boolean condition as its argument. If the condition is true, the function returns normally. If the condition is false, the function throws an IllegalStateException with an optional error message. Here's an example:
+
+```
+fun divide(a: Int, b: Int): Int {
+    check(b != 0) { "Cannot divide by zero" }
+    return a / b
+}
+```
+In this example, we're using the check function to make sure that the second argument to the divide function is not zero. If it is, the function will throw an IllegalStateException with the message "Cannot divide by zero". If the check passes, the function will return the result of dividing a by b.
+
+The check function can be used to enforce arbitrary conditions in your code, and can be a useful way to catch logical errors early on. However, it's important to use it judiciously, as overusing checks can make your code harder to read and understand.
+
+40. Explain Nothing type in Kotlin. (refer Atomic Kotlin book)
+
+A Nothing return type indicates a function that never returns
+
+In Kotlin, Nothing is a special type that represents the absence of a value. It is a subtype of all other types, meaning that Nothing can be used wherever any other type is expected. However, Nothing has no instances, meaning that it cannot be instantiated or assigned a value.
+
+The primary use case for Nothing is to represent functions or expressions that never return a value, either because they always throw an exception or because they enter an infinite loop. By declaring a function as returning Nothing, you are indicating to the compiler that the function will never return normally and will always throw an exception or enter an infinite loop.
+
+For example, let's say you're writing a function that should only be called when a particular condition is true, and you want to ensure that the function cannot be called if the condition is false. You could use Nothing to indicate that the function will never return normally if the condition is false:
+
+```
+fun doSomethingImportant(param: Int): Nothing {
+    if (param < 0) {
+        throw IllegalArgumentException("Param must be non-negative!")
+    } else {
+        // do something important
+    }
+    // This line will never be reached, because the function always throws an exception if param < 0
+}
+```
+
+In this example, we declare the doSomethingImportant function as returning Nothing. Inside the function, we check whether the param parameter is negative. If it is, we throw an IllegalArgumentException. If it's not, we do some important work (represented by the comment "// do something important"). However, because we've already thrown an exception if param is negative, the final line of the function will never be reached.
+
+By declaring the function as returning Nothing, we're telling the compiler that the function will never return normally if param is negative. This can be useful for ensuring that certain code paths are never executed, or for indicating that a function is only meant to be called in certain circumstances.
+
+41. Explain resource cleanup in kotlin.
+
+Resource cleanup is an important aspect of programming that involves releasing system resources that were acquired during program execution. Resources can include things like file handles, database connections, network sockets, and other system-level objects that are used by the program. In many cases, failing to release resources properly can lead to performance issues or even crashes.
+
+In Kotlin, you can use the use function to automatically close resources when they're no longer needed. The use function is an extension function on Closeable and AutoCloseable interfaces, which are implemented by classes that need to perform some cleanup operation when they're no longer in use.
+
+Here's an example of how you can use the use function to safely read a file and automatically close it when you're done:
+
+```
+import java.io.File
+
+fun readFile(path: String): String {
+    val file = File(path)
+    return file.inputStream().use { input ->
+        input.bufferedReader().use { reader ->
+            reader.readText()
+        }
+    }
+}
+```
+
+In this example, we use the File class to create an object that represents a file on the file system. We then call the inputStream function on the File object to create an InputStream object that allows us to read from the file. We use the use function to wrap the InputStream object and automatically close it when we're done. Inside the use block, we create a BufferedReader object using the bufferedReader function and read the entire contents of the file using the readText function.
+
+When the use block completes, the InputStream and BufferedReader objects are automatically closed, regardless of whether an exception was thrown or not.
+
+The use function can also be used with other types of resources that implement the Closeable or AutoCloseable interfaces. For example, you can use it to safely open and close a database connection, or to safely open and close a network socket. By using the use function to manage resources, you can help ensure that your program runs efficiently and avoids common resource management issues.
+
+The use function is typically used in situations where you need to acquire and release system resources in your code. It's particularly useful for managing resources that need to be cleaned up when they're no longer needed, like file handles, database connections, and network sockets.
+
+Using the use function can help you avoid common programming errors, like failing to close resources when they're no longer needed, or accidentally leaving resources open for too long. By wrapping resource acquisition and release operations in a use block, you can help ensure that resources are properly cleaned up, even in the case of an error or exception.
+
 
 
